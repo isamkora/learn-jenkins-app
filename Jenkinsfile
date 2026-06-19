@@ -27,11 +27,21 @@ pipeline {
         }
 
         stage('Test') {
+            agent {
+                docker {
+                    image 'node:18-alpine'
+                    reuseNode true
+                }
+            }
+            environment {
+                HOME = '/tmp'
+                npm_config_cache = '/tmp/.npm'
+            }
             steps {
                 sh '''
                     echo "Test stage"
                     test -f build/index.html
-
+                    npm test
                 '''
             }
         } 
