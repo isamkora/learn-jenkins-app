@@ -12,7 +12,6 @@ pipeline {
             environment {
                 HOME = '/tmp'
                 npm_config_cache = '/tmp/.npm'
-
             }
             steps {
                 sh '''
@@ -26,5 +25,13 @@ pipeline {
                 '''
             }
         }
+
+        stage('Test') {
+            steps {
+                sh '''
+                    echo "Test stage"
+                '''
+            }
+        } 
     }
 }
