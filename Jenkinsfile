@@ -12,7 +12,7 @@ pipeline {
             steps {
                 sh '''
                     ls -la
-                    chown -R 102:105 "/.npm"
+                    npm config set cache /tmp/.npm
                     node --version
                     npm --version
                     npm ci
