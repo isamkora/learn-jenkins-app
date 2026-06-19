@@ -7,8 +7,12 @@ pipeline {
                 docker {
                     image 'node:18-alpine'
                     reuseNode true
-                    args '-u node'
                 }
+            }
+            environment {
+                HOME = '/tmp'
+                npm_config_cache = '/tmp/.npm'
+
             }
             steps {
                 sh '''
