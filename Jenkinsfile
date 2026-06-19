@@ -10,10 +10,6 @@ pipeline {
                     args '-u node'
                 }
             }
-//            environment {
-//                HOME = '/tmp'
-//                npm_config_cache = '/tmp/.npm'
-////            }
             steps {
                 sh '''
                     ls -la
