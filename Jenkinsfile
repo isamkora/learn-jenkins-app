@@ -9,10 +9,14 @@ pipeline {
                     reuseNode true
                 }
             }
+            environment {
+                HOME = '/tmp'
+                npm_config_cache = '/tmp/.npm'
+
+            }
             steps {
                 sh '''
                     ls -la
-                    npm config set cache /tmp/.npm
                     node --version
                     npm --version
                     npm ci
