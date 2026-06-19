@@ -12,6 +12,7 @@ pipeline {
             steps {
                 sh '''
                     ls -la
+                    chown -R 102:105 "/.npm"
                     node --version
                     npm --version
                     npm ci
